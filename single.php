@@ -5,22 +5,38 @@
     <section class="site-section py-lg">
       <div class="container">
         <div class="row blog-entries element-animate">
-          <div class="col-md-12 col-lg-8 main-content">
-            <div class="col-md-12 col-lg-8 main-content">
+          <div class="col-md-12 col-lg-9 main-content">
+            <div class="col-md-12 col-lg-9 main-content">
+              <?php
+              $id_post = $_GET['post'];
+              $sql = mysqli_query($conexion,"SELECT * FROM posts WHERE post_id = '$id_post'");
+              $row= mysqli_fetch_assoc($sql);
+              ?>
               <div class="post-meta">
-                &bullet; <span class="mr-2">20-08-2020</span> 
+                &bullet; <span class="mr-2"><?= $row['post_date'];?></span> 
               </div>
-                <h1 class="mb-4">Titulo</h1>
-                <a class="category mb-5" href="#">Categoria</a> 
-              <div class="post-content-body">
-                <p>Contenido de la publicación</p>
-              </div>
-                <img src="" width="350px" class="img-fluid mb-5 rounded mx-auto d-block">
+              <h1 class="mb-4"><?= $row['post_title'];?></h1>
+              <a class="category mb-5" href="#"><?= $row['post_category'];?></a> 
+              <div class="card card-body-single" >
+                <div class="card-body card-body-single">
+                  <div class="list-group" id="list-tab" role="tablist">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <?=$row['post_content'];?>
+                      </div>
+                    </div><br>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
           <!-- END main-content -->
-            <div class="col-m-12 col-lg-4 sidebar">
-              <?php include 'includes/sidebar.php'; ?>
+          <div class="col-md-12 col-lg-3 sidebar">
+              <div class="sidebar-item">
+                <div class="make-me-sticky">
+                  <?php include 'includes/sidebar.php'; ?>
+                </div>
+              </div>
             </div>
         </div>
       </div>

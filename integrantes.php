@@ -11,22 +11,7 @@
           </div>
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-9 main-content">
-              
-                    <?php include 'includes/integrantes_i.php';?>
-
-              <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><<</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">>></a>
-                  </li>
-                </ul>
-              </nav>
+              <?php include 'includes/integrantes_i.php';?>
             </div>
             <div class="col-md-12 col-lg-3 sidebar">
               <div class="sidebar-item">

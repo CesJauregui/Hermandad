@@ -1,34 +1,33 @@
-<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
-        
-        <div class="carousel-inner banner bg-overlay">
-          <div class="carousel-item active">
-            <img src="images/fondo.jpg" class="w-100" alt="...">
-            <div class="carousel-caption d-md-block">
-              <div class="banner-text">
-                <h2> Hermandad Santos Varones y Cargadores del Santo Sepulcro - San José, Canta</h2>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="w-100" alt="...">
-            <div class="carousel-caption  d-md-block">
-              <div class="banner-text">
-                <h2> Hermandad Santos Varones y Cargadores del Santo Sepulcro - San José, Canta</h2>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://images.pexels.com/photos/206660/pexels-photo-206660.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="w-100" alt="...">
-            <div class="carousel-caption d-md-block">
-              <div class="banner-text">
-                <h2> Hermandad Santos Varones y Cargadores del Santo Sepulcro - San José, Canta</h2>
-              </div>
-            </div>
-          </div>
+
+<div id="banner" class="carousel slide carousel-fade" data-ride="carousel">
+   <!--1260x750-->
+    <div class="carousel-inner banner bg-overlay">
+	 <?php 
+        $sql = mysqli_query($conexion,"SELECT * FROM banner LIMIT 6");
+        $setActive = 0;
+        $slideHtml = '';
+        while($row = mysqli_fetch_assoc($sql)){
+            $activeClass = "";
+                if(!$setActive){
+                  $setActive = 1;
+                  $activeClass = 'active';
+                }
+        $slideHtml.= "<div class='carousel-item " . $activeClass."' data-interval='1000'>";
+        $slideHtml.= "<img src='admin/img-banner/".$row['imagen']."' class='w-100' alt='...'>";
+        $slideHtml.= "<div class='carousel-caption banner-text'>
+                        <h2><span>Hermandad Santos Varones Cargadores del Santo Sepulcro San José de Canta</span></h2>
+                      </div>";
+        $slideHtml.= "</div>";
+        }   
+        echo $slideHtml;
+     ?>          
         </div>
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
+        <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
       </div>

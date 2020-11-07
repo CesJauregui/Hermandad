@@ -1,4 +1,4 @@
-
+<?php include 'admin/includes/db.php';?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" >
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
   </head>

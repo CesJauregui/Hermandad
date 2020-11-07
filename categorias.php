@@ -1,6 +1,7 @@
 <?php include 'includes/header.php'; ?>
 <div class="wrap">
 <?php include 'includes/navigation.php'; ?>
+<?php include 'includes/banner.php'; ?>
   <section class="site-section py-sm">
     <div class="container">
       <div class="row">
@@ -13,7 +14,7 @@
         </div>
       </div>
       <div class="row blog-entries">
-        <div class="col-md-12 col-lg-8 main-content">
+        <div class="col-md-12 col-lg-9 main-content">
           <div class="row">
               <?php 
               if (isset($_GET['cat_id'])) {
@@ -32,48 +33,49 @@
             ?>
             <?php 
               while($row = mysqli_fetch_assoc($result)){
-                $post_id=$row['post_id'];
-                $post_title=$row['post_title'];
-                $category=$row['post_category'];
-                $category_id=$row['post_category_id'];
-                $status=$row['post_status'];
-                $post_image=$row['post_image'];
-                $content=$row['post_content'];
-                $date=$row['post_date'];
-                $view=$row['post_views'];
-                if($post_image=='../images/'){
+                if($row['post_image']=='../images/'){
                   ?>
                 <div class="col-md-6">
-                <a href="single.php?post=<?php echo $post_id?>" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                  <div class="blog-content-body">
-                    <div class="post-meta">
-                      <span class="author mr-2"><?php echo $category; ?></span>&bullet;
-                      <span class="mr-2"><?php echo $date; ?></span>
+                  <a href="single?post=<?=$row['post_id']?>" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                    <div class="card mb-3" style="max-width: 100%;">
+                      <div class="row no-gutters">
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h4 class="card-title"><?=$row['post_title']; ?></h4>
+                            <h5 ><p class="card-text"><?=substr($row['post_content'], 0, 200);?></p></h5><br>
+                            <p class="card-text"><?=$row['post_date']; ?></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <h2><?php echo $post_title; ?></h2>
-                  </div>
-                </a>
-              </div>
+                  </a>
+                </div>
                 <?php }else{ ?>
               <div class="col-md-6">
-                <a href="single.php?post=<?php echo $post_id?>" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                  <img src="admin/images/<?php echo $post_image; ?>" alt="Image placeholder" width="400px" height="250px" >
-                  <div class="blog-content-body">
-                    <div class="post-meta">
-                      <span class="author mr-2"><?php echo $category; ?></span>&bullet;
-                      <span class="mr-2"><?php echo $date; ?></span>
+                  <a href="single?post=<?=$row['post_id']?>" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                    <div class="card mb-3" style="max-width: 100%;">
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <img src="admin/images/<?=$row['post_image']; ?>" class="card-img" height="100%" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h4 class="card-title"><?=$row['post_title']; ?></h4>
+                            <h5 ><p class="card-text"><?=substr($row['post_content'], 0, 200);?></p></h5><br>
+                            <p class="card-text"><?=$row['post_date']; ?></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <h2><?php echo $post_title; ?></h2>
-                  </div>
-                </a>
-              </div>
+                  </a>
+                </div>
             <?php  }
                 } 
               }
             ?>
           </div>
         </div>
-            <div class="col-md-12 col-lg-4 sidebar">
+            <div class="col-md-12 col-lg-3 sidebar">
               <?php include 'includes/sidebar.php'; ?>
               <?php /*include 'includes/category.php';*/ ?>
             </div>

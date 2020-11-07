@@ -12,7 +12,7 @@
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-9 main-content">
               <div class="row">
-                <?php include 'includes/actividades_i.php'; ?>
+                <?php include 'includes/noticias_i.php'; ?>
               </div>
             </div>
             <div class="col-md-12 col-lg-3 sidebar">

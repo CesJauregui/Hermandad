@@ -35,7 +35,9 @@
 	  console.log('show');
 	});
 
-
+  $(window).scroll(function(){
+        $('nav').toggleClass('scrolled',$(this).scrollTop()>50);
+      });
 
 	// home slider
 	$('.home-slider').owlCarousel({
@@ -180,5 +182,7 @@
 
 
 })(jQuery);
+
+
 
 

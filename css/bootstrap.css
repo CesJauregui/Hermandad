@@ -3608,7 +3608,7 @@ input[type="button"].btn-block {
     color: #fff; }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5); }
+  color: rgba(255, 255, 255, 255); }
   .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
     color: rgba(255, 255, 255, 0.75); }
   .navbar-dark .navbar-nav .nav-link.disabled {
@@ -3670,6 +3670,42 @@ input[type="button"].btn-block {
     font-size: 14px;
   }
 }
+.card-body-single{
+  width: 1000px;
+  padding: 0 0;
+  border: none;
+}
+@media (min-width: 320px) {
+  .card-body-single{
+    max-width: 260px;
+  } }
+  @media (min-width: 375px) {
+    .card-body-single{
+      max-width: 320px;
+    } }
+@media (min-width: 425px) {
+  .card-body-single{
+    max-width: 360px;
+  } }
+
+@media (min-width: 768px) {
+  .card-body-single{
+    max-width: 705px;
+  } }
+
+@media (min-width: 1024px) {
+  .card-body-single{
+    max-width: 640px;
+  } }
+
+@media (min-width: 1200px) {
+  .card-body-single{
+    max-width: 100%;
+  } }
+  @media (min-width: 1400px) {
+    .card-body-single{
+      max-width: 1000px;
+    } }
 .card-title {
   margin-bottom: 0.75rem; }
 
@@ -6124,7 +6160,7 @@ button.bg-dark:focus {
 .w-100 {
   width: 100% !important;
   height: 500px !important;
-  padding-top: 62px; }
+  /*padding-top: 98px;*/ }
 
 .w-auto {
   width: auto !important; }
